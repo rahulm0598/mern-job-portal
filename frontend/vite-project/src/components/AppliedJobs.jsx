@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   Table,
   TableBody,
-  TableCaption,
+
   TableCell,
   TableFooter,
   TableHead,

@@ -10,7 +10,7 @@ import Jobs from "./components/Jobs";
 import { ToastContainer } from 'react-toastify';
 import Explore from "./components/Explore";
 import Profile from "./components/Profile";
-import Appliedjobs from "./components/Appliedjobs";
+
 import JobDescription from "./components/JobDescription";
 import Companies from "./components/admin/Companies";
 import AdminJobs from "./components/admin/AdminJobs";
@@ -18,6 +18,7 @@ import CreateCompany from "./components/admin/CreateCompany";
 import UpdateCompany from "./components/admin/UpdateCompany";
 import UpdateJobs from "./components/admin/UpdateJobs";
 import CreateJobs from "./components/admin/createJobs";
+import Appliedjobs from "./components/Appliedjobs";
 
 
 function App() {
