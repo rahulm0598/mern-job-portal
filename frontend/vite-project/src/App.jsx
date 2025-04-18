@@ -19,6 +19,7 @@ import UpdateCompany from "./components/admin/UpdateCompany";
 import UpdateJobs from "./components/admin/UpdateJobs";
 
 import CreateJobs from './components/admin/CreateJobs';
+import { Navigate } from "react-router-dom";
 
 
 
@@ -28,6 +29,7 @@ function App() {
     <div className="max-w-7xl mx-auto">
       <Navbar />
       <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/login" element={<Login />} />
