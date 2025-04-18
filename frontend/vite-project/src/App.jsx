@@ -17,8 +17,10 @@ import AdminJobs from "./components/admin/AdminJobs";
 import CreateCompany from "./components/admin/CreateCompany";
 import UpdateCompany from "./components/admin/UpdateCompany";
 import UpdateJobs from "./components/admin/UpdateJobs";
-import CreateJobs from "./components/admin/createJobs";
 import Appliedjobs from "./components/Appliedjobs";
+import CreateJobs from './components/admin/CreateJobs'
+
+
 
 
 function App() {
