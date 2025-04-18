@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Edit, Mail, Phone } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import Appliedjobs from './Appliedjobs';
+import AppliedJobs from './AppliedJobs';
 import UpdateProfileModel from './UpdateProfileModel';
 import { useSelector } from 'react-redux';
 import { Loader2 } from 'lucide-react'; // For loading spinner
@@ -93,7 +93,7 @@ const Profile = () => {
       {/* Applied Jobs Section */}
       <div className="mt-12 max-w-4xl mx-auto">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Applied Jobs</h2>
-        <Appliedjobs />
+        <AppliedJobs />
       </div>
 
       {/* Profile Modal */}
