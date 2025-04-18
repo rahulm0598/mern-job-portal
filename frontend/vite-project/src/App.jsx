@@ -17,8 +17,8 @@ import AdminJobs from "./components/admin/AdminJobs";
 import CreateCompany from "./components/admin/CreateCompany";
 import UpdateCompany from "./components/admin/UpdateCompany";
 import UpdateJobs from "./components/admin/UpdateJobs";
-import Appliedjobs from "./components/Appliedjobs";
-import CreateJobs from './components/admin/CreateJobs'
+
+import CreateJobs from './components/admin/CreateJobs';
 
 
 
@@ -34,7 +34,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path='/explore' element={<Explore />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/appliedjobs' element={<Appliedjobs />} />
+     
         <Route path='/job/description/:id' element={<JobDescription />} />
         <Route path='admin/companies' element={<Companies />} />
         <Route path='admin/jobs' element={<AdminJobs />} />
