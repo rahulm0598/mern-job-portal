@@ -49,7 +49,7 @@ const Job = ({ job, user }) => {
         >
           View Details
         </Button>
-        <Button variant="outline" className="hover:bg-gray-100 px-5">
+        <Button  variant="outline" className="hover:bg-gray-100 px-5">
           Save for Later
         </Button>
       </div>

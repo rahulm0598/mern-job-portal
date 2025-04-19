@@ -1,3 +1,4 @@
+// Navbar.jsx
 import { useSelector, useDispatch } from 'react-redux';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -35,69 +36,75 @@ const Navbar = () => {
   return (
     <header className="bg-white border-b shadow-sm px-4 py-3">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        
         {/* Logo */}
         <Link to="/home" className="text-3xl font-bold text-orange-600">
           Jobify
         </Link>
         <nav className="hidden md:flex gap-6 text-gray-800 text-sm font-medium">
-  <ul className="flex items-center gap-6">
-    {user?.role === "recruiter" ? (
-      <>
-        <li>
-          <Link
-            to="/admin/companies"
-            className="hover:text-orange-600 transition duration-200 relative group"
-          >
-            Companies
-            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/admin/jobs"
-            className="hover:text-orange-600 transition duration-200 relative group"
-          >
-            Jobs
-            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
-          </Link>
-        </li>
-      </>
-    ) : (
-      <>
-        <li>
-          <Link
-            to="/home"
-            className="hover:text-orange-600 transition duration-200 relative group"
-          >
-            Home
-            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/jobs"
-            className="hover:text-orange-600 transition duration-200 relative group"
-          >
-            Jobs
-            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/explore"
-            className="hover:text-orange-600 transition duration-200 relative group"
-          >
-            Explore
-            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
-          </Link>
-        </li>
-      </>
-    )}
-  </ul>
-</nav>
-
-
+          <ul className="flex items-center gap-6">
+            {user?.role === "recruiter" ? (
+              <>
+                <li>
+                  <Link
+                    to="/admin/companies"
+                    className="hover:text-orange-600 transition duration-200 relative group"
+                  >
+                    Companies
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/jobs"
+                    className="hover:text-orange-600 transition duration-200 relative group"
+                  >
+                    Jobs
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/applications"
+                    className="hover:text-orange-600 transition duration-200 relative group"
+                  >
+                    Applications
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link
+                    to="/home"
+                    className="hover:text-orange-600 transition duration-200 relative group"
+                  >
+                    Home
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/jobs"
+                    className="hover:text-orange-600 transition duration-200 relative group"
+                  >
+                    Jobs
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/explore"
+                    className="hover:text-orange-600 transition duration-200 relative group"
+                  >
+                    Explore
+                    <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-orange-600 transition-all group-hover:w-full"></span>
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
         {/* Auth Buttons or Avatar */}
         <div className="flex items-center gap-3">
           {!user ? (
