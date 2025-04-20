@@ -5,44 +5,45 @@ import { Job } from "../models/job.model.js";
 // Apply for job
 export const applyForJob = async (req, res) => {
     try {
-      const { jobId } = req.params;
-      const userId = req.id;
-      const user = await User.findById(userId);
-      if (!user) {
-        return res.status(404).json({ message: "User not found", success: false });
-      }
-      const alreadyApplied = await Application.findOne({
-        job: jobId,
-        applicant: userId,
-      });
-      if (alreadyApplied) {
-        return res.status(400).json({
-          message: "You have already applied for this job",
-          success: false,
+        const {jobId} = req.params;
+        const userId = req.id;
+        const alreadyapplied = await Application.findOne({
+            job: jobId,
+            applicant: userId,
+
         });
-      }
-      const job = await Job.findById(jobId);
-      if (!job) {
-        return res.status(404).json({ message: "Job not found", success: false });
-      }
-      const newApplication = new Application({
-        job: jobId,
-        applicant: userId,
-      });
-      await newApplication.save();
-      job.application.push(newApplication._id);
-      await job.save();
-      console.log('Created application ID:', newApplication._id);
-      return res.status(201).json({
-        message: "Application submitted successfully",
-        success: true,
-        newApplication,
-      });
-    } catch (error) {
-      console.log("error in applying the job", error);
-      return res.status(500).json({ message: "Internal server error", success: false });
+        if (alreadyapplied) {
+            return res.status(400).json({ message: "You have already applied for this job",
+                success:false,
+                });
+            }
+            const job = await Job.findById(jobId);
+            if (!job) {
+                return res.status(404).json({ message: "Job not found",
+                })};
+                const newApplication = new Application({ job:jobId,
+                    applicant:userId,
+                })
+                await newApplication.save();
+                await job.application.push(newApplication._id);
+                await job.save();
+                return res.status(201).json({ message: "Application submitted successfully",
+                    success:true,
+                    newApplication,
+                    });
+            }
+
+           
+                   
+            
+
+    
+    catch (error) {
+        console.log("error in appying the job",error)
     }
-  };
+    
+}
+
 
 // Get applied jobs
 export const getAppliedJobs = async (req, res) => {
@@ -105,35 +106,36 @@ export const changeStatus = async (req, res) => {
 }
 
 // Get application by ID
+// backend/controllers/application.controller.js
 export const getApplicationById = async (req, res) => {
     try {
-        const { applicationId } = req.params;
-        console.log('Fetching application with ID:', applicationId); // Debug log
-        const application = await Application.findById(applicationId)
-            .populate({
-                path: 'applicant',
-                select: 'name email phoneNumber profile',
-            })
-            .populate({
-                path: 'job',
-                select: 'title company',
-                populate: {
-                    path: 'company',
-                    select: 'name',
-                },
-            });
-
-        if (!application) {
-            console.log('Application not found for ID:', applicationId); // Debug log
-            return res.status(404).json({ message: 'Application not found', success: false });
-        }
-
-        return res.status(200).json({
-            success: true,
-            application,
+      const { applicationId } = req.params;
+      console.log('Fetching application with ID:', applicationId);
+      const application = await Application.findById(applicationId)
+        .populate({
+          path: 'applicant',
+          select: 'name email phoneNumber profile',
+        })
+        .populate({
+          path: 'job',
+          select: 'title company',
+          populate: {
+            path: 'company',
+            select: 'name',
+          },
         });
+  
+      if (!application) {
+        console.log('Application not found for ID:', applicationId);
+        return res.status(404).json({ message: 'Application not found', success: false });
+      }
+  
+      return res.status(200).json({
+        success: true,
+        application,
+      });
     } catch (error) {
-        console.log('Error in getting application:', error);
-        return res.status(500).json({ message: 'Internal server error', success: false });
+      console.log('Error in getting application:', error);
+      return res.status(500).json({ message: 'Internal server error', success: false });
     }
-}
+  };

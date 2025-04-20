@@ -38,11 +38,11 @@
 
 
   cloudinary.config({ 
-    cloud_name:"doiffpm9v",
-    api_key: "387519876738288", 
-    api_secret:"Ia3C9K53B5J1hMphCUE-RhULW6k"  // Click 'View API Keys' above to copy your API secret
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
   });
-
+  
   app.listen(PORT, () => {
     connectDB();
     console.log(`Server is running on port ${PORT}`);
